@@ -20,7 +20,7 @@ const GEMINI_KEY_SECRET   = defineSecret("GEMINI_API_KEY");
 const GCP_API_KEY_SECRET  = defineSecret("GCP_API_KEY");
 
 const RAPIDAPI_HOST = "cricbuzz-cricket.p.rapidapi.com";
-const GEMINI_URL    = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+const GEMINI_URL    = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
 function setCors(res: any): void {
   res.set("Access-Control-Allow-Origin", "*");
@@ -142,7 +142,7 @@ export const liveMatches = onRequest(
 // POST /sentimentProxy  body: { text: string }
 // =====================================================================
 export const sentimentProxy = onRequest(
-  { cors: true, timeoutSeconds: 10 },
+  { secrets: [GCP_API_KEY_SECRET], cors: true, timeoutSeconds: 10 },
   async (req, res) => {
     if (req.method === "OPTIONS") { setCors(res); res.status(204).send(""); return; }
     setCors(res);

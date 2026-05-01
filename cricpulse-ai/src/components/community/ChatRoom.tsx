@@ -32,14 +32,26 @@ const MessageBubble: React.FC<{ msg: ChatMessage; isOwn: boolean }> = ({ msg, is
 };
 
 const ChatRoom: React.FC = () => {
-  const { messages, sendMessage, user, overallSentiment, lastModeration } = useUser();
+  const { messages, sendMessage, user, overallSentiment, lastModeration, isFirebaseEnabled } = useUser();
   const [input, setInput] = useState('');
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const onlineCount = Math.max(
-    1,
-    new Set(messages.map((m) => m.userId).filter((id) => id && id !== 'system')).size
-  );
+  // Count distinct users who posted in the last 5 minutes from Firestore messages.
+  // If Firebase is live we have real messages; otherwise fall back to a simulated count.
+  const onlineCount = React.useMemo(() => {
+    const fiveMinAgo = Date.now() - 5 * 60 * 1000;
+    const recentUsers = new Set(
+      messages
+        .filter((m) => m.userId !== 'system' && m.userId !== 'me' && m.timestamp > fiveMinAgo)
+        .map((m) => m.userId)
+    );
+    // Always count the current user as online
+    const total = recentUsers.size + 1;
+    // If Firebase isn't connected (demo mode) show a plausible crowd count
+    if (!isFirebaseEnabled) return Math.floor(Math.random() * 40 + 60); // 60-100 viewers
+    return Math.max(total, 1);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [messages.length, isFirebaseEnabled]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });

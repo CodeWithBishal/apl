@@ -5,7 +5,7 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 // ============================================================
 
 const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY ?? '';
-const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
 const _BASE          = process.env.REACT_APP_CLOUD_FUNCTIONS_BASE_URL ?? '';
 const PROXY_URL      = _BASE || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:4000');
 
