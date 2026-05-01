@@ -1,0 +1,35 @@
+{
+  "hosting": {
+    "public": "build",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      { "source": "/matchPoller",    "run": { "serviceId": "matchpoller",    "region": "us-central1" } },
+      { "source": "/liveMatches",    "run": { "serviceId": "livematches",    "region": "us-central1" } },
+      { "source": "/sentimentProxy", "run": { "serviceId": "sentimentproxy", "region": "us-central1" } },
+      { "source": "/geminiProxy",    "run": { "serviceId": "geminiproxy",    "region": "us-central1" } },
+      { "source": "**",              "destination": "/index.html" }
+    ],
+    "headers": [
+      {
+        "source": "/static/**",
+        "headers": [{ "key": "Cache-Control", "value": "max-age=31536000,immutable" }]
+      },
+      {
+        "source": "**/*.@(html|json)",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      }
+    ]
+  },
+  "functions": {
+    "source": "functions",
+    "runtime": "nodejs20"
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

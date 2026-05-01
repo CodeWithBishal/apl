@@ -1,0 +1,184 @@
+.dashboard-shell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+/* ---- Profile ---- */
+.db-profile {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.db-avatar {
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0,200,255,0.1), rgba(191,90,242,0.1));
+  border: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.db-user-info { flex: 1; }
+.db-username  { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+.db-points    { display: flex; gap: 4px; align-items: center; font-size: 0.75rem; color: var(--neon-yellow); margin-top: 2px; }
+
+/* ---- Preference row ---- */
+.db-pref-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.db-pref-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+  width: 80px;
+  flex-shrink: 0;
+}
+
+.db-select {
+  flex: 1;
+  padding: 5px 8px;
+  background: var(--bg-glass-light);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.db-select:focus { border-color: var(--neon-blue); }
+
+/* ---- Stat Grid ---- */
+.db-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.db-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  background: var(--bg-glass-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.db-stat-val {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.db-stat-key {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.db-dismissal {
+  margin-top: var(--space-sm);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  background: var(--bg-glass-light);
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* ---- Win Prob Bar ---- */
+.win-prob-bar-container { margin-top: var(--space-sm); }
+
+.win-prob-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.win-prob-bar {
+  height: 8px;
+  background: rgba(0, 144, 200, 0.2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.win-prob-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
+  border-radius: var(--radius-full);
+  transition: width 0.8s var(--ease-spring);
+}
+
+.win-prob-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.win-prob-pct {}
+
+/* ---- Match result ---- */
+.match-result-badge {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--neon-green);
+  background: rgba(0,230,118,0.08);
+  border: 1px solid rgba(0,230,118,0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  text-align: center;
+  margin-top: var(--space-sm);
+}
+
+/* ---- Key Stats ---- */
+.db-key-stats { display: flex; flex-direction: column; gap: var(--space-sm); margin-top: var(--space-sm); }
+
+.db-innings-key {
+  background: var(--bg-glass-light);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.db-innings-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.db-key-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.db-key-icon { font-size: 0.85rem; }

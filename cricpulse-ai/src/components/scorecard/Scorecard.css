@@ -1,0 +1,173 @@
+.scorecard-shell {
+  background: linear-gradient(135deg, rgba(0, 200, 255, 0.05) 0%, rgba(20, 24, 36, 0.95) 100%);
+  border: 1px solid rgba(0, 200, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  transition: box-shadow 0.5s var(--ease-smooth),
+              border-color 0.5s var(--ease-smooth);
+}
+
+.scorecard-shell.anim-boundary {
+  animation: boundary-glow 1.5s ease-out;
+  border-color: rgba(255, 214, 0, 0.5) !important;
+}
+
+.scorecard-shell.anim-wicket {
+  animation: wicket-glow 1.5s ease-out, shake 0.6s ease-out;
+  border-color: rgba(255, 61, 113, 0.5) !important;
+}
+
+/* ---- Status Bar ---- */
+.match-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.match-status-text {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--neon-green);
+  letter-spacing: 0.02em;
+}
+
+/* ---- Score Display ---- */
+.score-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+}
+
+.score-team {
+  flex: 1;
+  text-align: center;
+}
+
+.score-team-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--neon-blue);
+  margin-bottom: 6px;
+}
+
+.score-team-name.secondary {
+  color: var(--text-secondary);
+}
+
+.score-runs-block {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
+
+.score-runs {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  line-height: 1;
+  text-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+}
+
+.score-runs.secondary {
+  font-size: 2rem;
+  color: var(--text-secondary);
+  text-shadow: none;
+}
+
+.score-sep {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--text-muted);
+}
+
+.score-wickets {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--neon-red);
+}
+
+.score-overs {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.score-overs.secondary {
+  color: var(--text-muted);
+}
+
+/* ---- VS Divider ---- */
+.score-vs-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.score-vs-line {
+  width: 1px;
+  height: 30px;
+  background: var(--border-subtle);
+}
+
+.score-vs-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* ---- Stats Row ---- */
+.score-stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.score-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px;
+  background: var(--bg-glass-light);
+  border-radius: var(--radius-sm);
+}
+
+.score-stat-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.score-stat-value {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ---- Extras ---- */
+.score-extras {
+  margin-top: var(--space-sm);
+  text-align: center;
+}

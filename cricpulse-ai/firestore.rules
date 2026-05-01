@@ -1,0 +1,29 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---- Match data (written by Cloud Functions only) ----
+    match /matches/{matchId} {
+      allow read: if true;   // public scorecard
+      allow write: if false; // only Cloud Functions write via admin SDK
+
+      // Live state (updated by Cloud Function)
+      match /state/{stateDoc} {
+        allow read: if true;
+        allow write: if false;
+      }
+
+      // Chat messages — anyone can read/write during match window
+      match /chat/{messageId} {
+        allow read: if true;
+        allow create: if
+          request.resource.data.keys().hasAll(['userId', 'username', 'avatar', 'text', 'timestamp']) &&
+          request.resource.data.text is string &&
+          request.resource.data.text.size() > 0 &&
+          request.resource.data.text.size() <= 200;
+        allow update, delete: if false;
+      }
+    }
+  }
+}

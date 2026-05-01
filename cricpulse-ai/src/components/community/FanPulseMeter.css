@@ -1,0 +1,47 @@
+.fanpulse-shell {
+  background: var(--bg-card);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  transition: border-color 0.5s var(--ease-smooth), box-shadow 0.5s var(--ease-smooth);
+}
+
+.fanpulse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.fanpulse-state-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+}
+
+.fanpulse-state-happy  { background: rgba(0,230,118,0.1);  color: #00E676; border: 1px solid rgba(0,230,118,0.2); }
+.fanpulse-state-neutral{ background: rgba(255,214,0,0.1);  color: #FFD600; border: 1px solid rgba(255,214,0,0.2); }
+.fanpulse-state-angry  { background: rgba(255,61,113,0.1); color: #FF3D71; border: 1px solid rgba(255,61,113,0.2); }
+
+.fanpulse-gauge-container {
+  display: flex;
+  justify-content: center;
+  margin: var(--space-sm) 0;
+}
+
+.fanpulse-canvas {
+  filter: drop-shadow(0 0 12px var(--pulse-glow, rgba(0,200,255,0.3)));
+}
+
+.fanpulse-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-xs);
+}
+
+.fanpulse-scale-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+}

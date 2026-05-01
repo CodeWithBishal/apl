@@ -1,0 +1,149 @@
+.innings-table-shell {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  overflow: hidden;
+}
+
+/* ---- Tabs ---- */
+.table-tabs {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  background: var(--bg-glass-light);
+  border-radius: var(--radius-md);
+  padding: 3px;
+}
+
+.table-tab {
+  flex: 1;
+  padding: 6px 8px;
+  border: none;
+  border-radius: calc(var(--radius-md) - 2px);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--dur-fast) var(--ease-smooth);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.table-tab.active {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ---- Table ---- */
+.table-scroll {
+  overflow-x: auto;
+}
+
+.cricket-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.cricket-table th {
+  text-align: right;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  padding: 4px 6px 8px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.cricket-table th.col-name { text-align: left; }
+
+.cricket-table td {
+  padding: 8px 6px;
+  text-align: right;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.cricket-table td.col-name { text-align: left; min-width: 140px; }
+
+.cricket-table tbody tr:hover { background: var(--bg-glass-light); }
+
+/* ---- Row variants ---- */
+.row-notout td { color: var(--text-primary) !important; }
+.row-hero { background: rgba(0, 200, 255, 0.04) !important; }
+
+/* ---- Player cell ---- */
+.player-cell { display: flex; flex-direction: column; gap: 1px; }
+.player-name  { font-size: 0.82rem; font-weight: 600; color: var(--text-primary); display: flex; align-items: center; gap: 4px; }
+.player-dismissal { font-size: 0.68rem; color: var(--text-muted); white-space: normal; }
+
+.player-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  background: var(--neon-blue-dim);
+  color: var(--neon-blue);
+  border: 1px solid rgba(0,200,255,0.2);
+  border-radius: 3px;
+  padding: 0 3px;
+}
+
+/* ---- Stat variants ---- */
+.stat-bold { font-weight: 700; color: var(--text-primary) !important; }
+.stat-hot  { font-weight: 700; color: var(--neon-green) !important; }
+.stat-red  { color: var(--neon-red) !important; }
+.text-yellow { color: var(--neon-yellow) !important; }
+.text-accent { color: var(--neon-blue) !important; }
+.text-green  { color: var(--neon-green) !important; }
+.text-red    { color: var(--neon-red) !important; }
+
+/* ---- Tfoot ---- */
+.extras-row, .total-label, .total-value {
+  padding: 8px 6px;
+  font-size: 0.75rem;
+  background: var(--bg-glass-light);
+}
+.extras-row { color: var(--text-muted); }
+.total-label { font-weight: 700; color: var(--text-secondary); }
+.total-value { font-weight: 700; color: var(--text-primary); text-align: left; }
+
+/* ---- FOW Grid ---- */
+.fow-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+}
+
+.fow-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 8px;
+  background: var(--bg-glass-light);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+}
+
+.fow-wicket {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 61, 113, 0.15);
+  color: var(--neon-red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fow-detail { display: flex; flex-direction: column; gap: 1px; }
+.fow-name  { font-size: 0.75rem; font-weight: 600; color: var(--text-primary); }
+.fow-score { font-size: 0.65rem; color: var(--text-secondary); }
